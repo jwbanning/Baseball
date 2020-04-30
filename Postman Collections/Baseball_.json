@@ -190,6 +190,10 @@
                 "id": "52ac0711-e236-49b7-9780-8eb98a043bd2",
                 "exec": [
                   "",
+                  "",
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
                   "var template = `",
                   "",
                   "<div id=\"card_container\">",
