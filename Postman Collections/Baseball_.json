@@ -179,9 +179,7 @@
                   "    pm.variables.set(\"token\", \"Player not found\");",
                   "}else{",
                   "    pm.variables.set(\"token\", \"Baseball Card\");",
-                  "}",
-                  "",
-                  "console.log('test')"
+                  "}"
                 ],
                 "type": "text/javascript"
               }
