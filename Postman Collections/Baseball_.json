@@ -534,11 +534,20 @@
                   "let playerID = req.playerID",
                   "console.log(playerID)",
                   "",
-                  "if (isNaN(playerID)){",
-                  "    pm.variables.set(\"token\", \"Player not found\");",
-                  "}else{",
-                  "    pm.variables.set(\"token\", \"Baseball Card\");",
-                  "}"
+                  "// if (isNaN(playerID)){",
+                  "//     pm.variables.set(\"token\", \"Player not found\");",
+                  "// }else{",
+                  "//     pm.variables.set(\"token\", \"Baseball Card\");",
+                  "// }",
+                  "",
+                  " pm.sendRequest('https://postman-echo.com/time/now', function (err, res) {",
+                  "    if (err) { console.log(err); }",
+                  "    else {",
+                  "        var currentTime = res.stream.toString();",
+                  "        console.log(currentTime);",
+                  "        pm.environment.set(\"currentTime\", currentTime);",
+                  "    }",
+                  "});"
                 ],
                 "type": "text/javascript"
               }
@@ -609,7 +618,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"playerID\":1222\n}",
+              "raw": "{\n\t\"playerID\": \"asdasd\"\n}",
               "options": {
                 "raw": {}
               }
