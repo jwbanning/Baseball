@@ -520,19 +520,6 @@
           ]
         },
         {
-          "name": "List players on a team",
-          "_postman_id": "6a0f85a1-dba7-49e6-99cb-01a9b0e8b500",
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          },
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": ""
-          },
-          "response": []
-        },
-        {
           "name": "Baseball Card Copy",
           "event": [
             {
@@ -884,6 +871,19 @@
               "body": "{\n    \"error\": {\n        \"name\": \"player not found\",\n        \"message\": \"Please checck the PlayerId\",\n        \"header\": \"No matching requests\"\n    }\n}"
             }
           ]
+        },
+        {
+          "name": "List players on a team",
+          "_postman_id": "6a0f85a1-dba7-49e6-99cb-01a9b0e8b500",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": ""
+          },
+          "response": []
         }
       ],
       "_postman_id": "11c38a97-ac5a-4733-b160-1a92532639aa"
