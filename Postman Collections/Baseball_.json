@@ -527,8 +527,14 @@
               "script": {
                 "id": "4114f340-1499-422f-aaa9-4fb36a635bf4",
                 "exec": [
+                  "//get the body value",
+                  "var req = JSON.parse(pm.request.body.raw);",
+                  "console.log(req)",
                   "",
-                  "if (isNaN(pm.environment.get(\"playerId\"))){",
+                  "let playerID = req.playerID",
+                  "console.log(req)",
+                  "",
+                  "if (isNaN(playerID)){",
                   "    pm.variables.set(\"token\", \"Player not found\");",
                   "}else{",
                   "    pm.variables.set(\"token\", \"Baseball Card\");",
@@ -582,7 +588,7 @@
             "disableBodyPruning": true
           },
           "request": {
-            "method": "POST",
+            "method": "GET",
             "header": [
               {
                 "key": "Content-Type",
