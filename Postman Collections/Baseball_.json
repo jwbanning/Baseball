@@ -601,6 +601,13 @@
                 "disabled": true
               }
             ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"playerID\":\"1222\"\n}",
+              "options": {
+                "raw": {}
+              }
+            },
             "url": "{{url}}/player/card/{{playerId}}",
             "description": "This GET request gets all the pertainent data that will be used to create a baseball card."
           },
