@@ -608,7 +608,7 @@
                 "raw": {}
               }
             },
-            "url": "{{url}}/player/card/{{playerId}}",
+            "url": "{{url}}/player/card/",
             "description": "This GET request gets all the pertainent data that will be used to create a baseball card."
           },
           "response": [
