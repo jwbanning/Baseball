@@ -609,7 +609,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"playerID\":\"1222\"\n}",
+              "raw": "{\n\t\"playerID\":1222\n}",
               "options": {
                 "raw": {}
               }
