@@ -189,11 +189,13 @@
               "script": {
                 "id": "52ac0711-e236-49b7-9780-8eb98a043bd2",
                 "exec": [
-                  "",
-                  "",
-                  "pm.test(\"Status code is 400\", function () {",
-                  "    pm.response.to.have.status(400);",
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
                   "});",
+                  "",
+                  "//add a random comment",
+                  "",
+                  "",
                   "var template = `",
                   "",
                   "<div id=\"card_container\">",
@@ -529,6 +531,359 @@
             "url": ""
           },
           "response": []
+        },
+        {
+          "name": "Baseball Card Copy",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "id": "4114f340-1499-422f-aaa9-4fb36a635bf4",
+                "exec": [
+                  "",
+                  "if (isNaN(pm.environment.get(\"playerId\"))){",
+                  "    pm.variables.set(\"token\", \"Player not found\");",
+                  "}else{",
+                  "    pm.variables.set(\"token\", \"Baseball Card\");",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "id": "e399a13f-29bc-4f41-969f-7f00263683dd",
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "//add a random comment",
+                  "",
+                  "",
+                  "var template = `",
+                  "",
+                  "<div id=\"card_container\">",
+                  "   <div>",
+                  "   <img src=\"data:image/jpeg;base64,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\">",
+                  "   </div>",
+                  "",
+                  "</div>",
+                  "   ",
+                  "<style>",
+                  "#mapid { height: 300px; }",
+                  "</style>",
+                  "",
+                  "<script>",
+                  "",
+                  "",
+                  "",
+                  "</script>",
+                  "`;",
+                  "",
+                  "pm.visualizer.set(template, {",
+                  "    response: JSON.parse(responseBody)",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "_postman_id": "d0cd519d-6ab4-4303-bc41-d1b91a2422a5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "x-mock-response-name",
+                "value": "{{token}}",
+                "type": "text"
+              },
+              {
+                "key": "",
+                "value": "",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": "{{url}}/player/card/{{playerId}}",
+            "description": "This GET request gets all the pertainent data that will be used to create a baseball card."
+          },
+          "response": [
+            {
+              "id": "20ef091e-9d9c-48ba-9dce-e014eab347b0",
+              "name": "Baseball Card",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": "{{url}}/player/card/1234"
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 11 Mar 2020 14:29:46 GMT"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"a4-7hO0T/XLq3TuFViTu2ZVQQdIY+A\""
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "X-RateLimit-Limit",
+                  "value": "120"
+                },
+                {
+                  "key": "X-RateLimit-Remaining",
+                  "value": "119"
+                },
+                {
+                  "key": "X-RateLimit-Reset",
+                  "value": "1583937046"
+                },
+                {
+                  "key": "x-srv-span",
+                  "value": "v=1;s=bfba5491f7f4f0c2"
+                },
+                {
+                  "key": "x-srv-trace",
+                  "value": "v=1;t=6ec0c433a68a6c8f"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "140"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"player_info\": {\n        \"copyRight\": \" Copyright 2019 MLB Advanced Media, L.P.  Use of any content on this page acknowledges agreement to the terms posted here http://gdx.mlb.com/components/copyright.txt  \",\n        \"queryResults\": {\n            \"created\": \"2019-07-17T20:13:04\",\n            \"totalSize\": \"1\",\n            \"row\": {\n                \"birth_country\": \"Cuba\",\n                \"name_prefix\": \"\",\n                \"name_display_first_last\": \"Yoenis Cespedes\",\n                \"college\": \"\",\n                \"height_inches\": \"10\",\n                \"death_country\": \"\",\n                \"age\": \"33\",\n                \"name_display_first_last_html\": \"Yoenis C\\ufffdspedes\",\n                \"gender\": \"M\",\n                \"height_feet\": \"5\",\n                \"pro_debut_date\": \"2012-03-28T00:00:00\",\n                \"death_date\": \"\",\n                \"primary_position\": \"7\",\n                \"birth_date\": \"1985-10-18T00:00:00\",\n                \"team_abbrev\": \"NYM\",\n                \"status\": \"60-day IL\",\n                \"name_display_last_first_html\": \"C\\ufffdspedes, Yoenis\",\n                \"throws\": \"R\",\n                \"death_city\": \"\",\n                \"primary_position_txt\": \"LF\",\n                \"high_school\": \"\",\n                \"name_display_roster_html\": \"C\\ufffdspedes\",\n                \"name_use\": \"Yoenis\",\n                \"player_id\": \"493316\",\n                \"status_date\": \"2019-05-06T00:00:00\",\n                \"primary_stat_type\": \"hitting\",\n                \"team_id\": \"121\",\n                \"active_sw\": \"Y\",\n                \"primary_sport_code\": \"mlb\",\n                \"birth_state\": \"\",\n                \"weight\": \"220\",\n                \"name_middle\": \"\",\n                \"name_display_roster\": \"Cespedes\",\n                \"end_date\": \"\",\n                \"jersey_number\": \"52\",\n                \"death_state\": \"\",\n                \"name_first\": \"Yoenis\",\n                \"bats\": \"R\",\n                \"team_code\": \"nyn\",\n                \"birth_city\": \"Granma\",\n                \"name_nick\": \"La Potencia\",\n                \"status_code\": \"D60\",\n                \"name_matrilineal\": \"Milanes\",\n                \"team_name\": \"New York Mets\",\n                \"name_display_last_first\": \"Cespedes, Yoenis\",\n                \"twitter_id\": \"@ynscspds\",\n                \"name_title\": \"\",\n                \"file_code\": \"nym\",\n                \"name_last\": \"Cespedes\",\n                \"start_date\": \"2016-11-30T00:00:00\",\n                \"name_full\": \"Cespedes, Yoenis\"\n            }\n        }\n    }\n}"
+            },
+            {
+              "id": "9c0f2382-1679-4bc7-965d-17abeafcb686",
+              "name": "Baseball Card - Kershaw",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "",
+                    "value": "",
+                    "type": "text",
+                    "disabled": true
+                  }
+                ],
+                "url": "{{url}}/player/card/5678"
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 11 Mar 2020 15:23:20 GMT"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"a4-7hO0T/XLq3TuFViTu2ZVQQdIY+A\""
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "X-RateLimit-Limit",
+                  "value": "120"
+                },
+                {
+                  "key": "X-RateLimit-Remaining",
+                  "value": "119"
+                },
+                {
+                  "key": "X-RateLimit-Reset",
+                  "value": "1583937046"
+                },
+                {
+                  "key": "x-srv-span",
+                  "value": "v=1;s=bfba5491f7f4f0c2"
+                },
+                {
+                  "key": "x-srv-trace",
+                  "value": "v=1;t=6ec0c433a68a6c8f"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "787"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"player_info\": {\n        \"copyRight\": \" Copyright 2019 MLB Advanced Media, L.P.  Use of any content on this page acknowledges agreement to the terms posted here http://gdx.mlb.com/components/copyright.txt  \",\n        \"queryResults\": {\n            \"created\": \"2019-07-17T20:13:04\",\n            \"totalSize\": \"1\",\n            \"row\": {\n                \"birth_country\": \"USA\",\n                \"name_prefix\": \"\",\n                \"name_display_first_last\": \"Clayton Kershaw\",\n                \"college\": \"\",\n                \"height_inches\": \"10\",\n                \"death_country\": \"\",\n                \"age\": \"33\",\n                \"name_display_first_last_html\": \"Yoenis C\\ufffdspedes\",\n                \"gender\": \"M\",\n                \"height_feet\": \"5\",\n                \"pro_debut_date\": \"2012-03-28T00:00:00\",\n                \"death_date\": \"\",\n                \"primary_position\": \"7\",\n                \"birth_date\": \"1985-10-18T00:00:00\",\n                \"team_abbrev\": \"NYM\",\n                \"status\": \"60-day IL\",\n                \"name_display_last_first_html\": \"C\\ufffdspedes, Yoenis\",\n                \"throws\": \"R\",\n                \"death_city\": \"\",\n                \"primary_position_txt\": \"LF\",\n                \"high_school\": \"\",\n                \"name_display_roster_html\": \"C\\ufffdspedes\",\n                \"name_use\": \"Yoenis\",\n                \"player_id\": \"493316\",\n                \"status_date\": \"2019-05-06T00:00:00\",\n                \"primary_stat_type\": \"hitting\",\n                \"team_id\": \"121\",\n                \"active_sw\": \"Y\",\n                \"primary_sport_code\": \"mlb\",\n                \"birth_state\": \"\",\n                \"weight\": \"220\",\n                \"name_middle\": \"\",\n                \"name_display_roster\": \"Cespedes\",\n                \"end_date\": \"\",\n                \"jersey_number\": \"52\",\n                \"death_state\": \"\",\n                \"name_first\": \"Yoenis\",\n                \"bats\": \"R\",\n                \"team_code\": \"nyn\",\n                \"birth_city\": \"Granma\",\n                \"name_nick\": \"La Potencia\",\n                \"status_code\": \"D60\",\n                \"name_matrilineal\": \"Milanes\",\n                \"team_name\": \"New York Mets\",\n                \"name_display_last_first\": \"Cespedes, Yoenis\",\n                \"twitter_id\": \"@ynscspds\",\n                \"name_title\": \"\",\n                \"file_code\": \"nym\",\n                \"name_last\": \"Cespedes\",\n                \"start_date\": \"2016-11-30T00:00:00\",\n                \"name_full\": \"Cespedes, Yoenis\"\n            }\n        }\n    }\n}"
+            },
+            {
+              "id": "c13f5ad0-2e06-4812-8b5d-4794cd560064",
+              "name": "Player not found",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "x-mock-response-name",
+                    "value": "Player not found",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/player/card/abcd",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "player",
+                    "card",
+                    "abcd"
+                  ],
+                  "query": [
+                    {
+                      "key": "",
+                      "value": "",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Encoding",
+                  "value": "gzip"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 11 Mar 2020 15:31:13 GMT"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"a4-7hO0T/XLq3TuFViTu2ZVQQdIY+A\""
+                },
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept-Encoding"
+                },
+                {
+                  "key": "X-RateLimit-Limit",
+                  "value": "120"
+                },
+                {
+                  "key": "X-RateLimit-Remaining",
+                  "value": "119"
+                },
+                {
+                  "key": "X-RateLimit-Reset",
+                  "value": "1583937046"
+                },
+                {
+                  "key": "x-srv-span",
+                  "value": "v=1;s=bfba5491f7f4f0c2"
+                },
+                {
+                  "key": "x-srv-trace",
+                  "value": "v=1;t=6ec0c433a68a6c8f"
+                },
+                {
+                  "key": "transfer-encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n    \"error\": {\n        \"name\": \"player not found\",\n        \"message\": \"Please checck the PlayerId\",\n        \"header\": \"No matching requests\"\n    }\n}"
+            }
+          ]
         }
       ],
       "_postman_id": "11c38a97-ac5a-4733-b160-1a92532639aa"
