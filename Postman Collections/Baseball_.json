@@ -532,7 +532,7 @@
                   "console.log(req)",
                   "",
                   "let playerID = req.playerID",
-                  "console.log(req)",
+                  "console.log(playerID)",
                   "",
                   "if (isNaN(playerID)){",
                   "    pm.variables.set(\"token\", \"Player not found\");",
