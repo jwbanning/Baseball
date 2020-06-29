@@ -2,6 +2,7 @@
   "info": {
     "_postman_id": "232c10d7-f578-4bf1-807f-2337a219d20d",
     "name": "Baseball ",
+    "description": "This is some test",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
   "item": [
@@ -1030,6 +1031,28 @@
         }
       ],
       "_postman_id": "1e2e1890-b15b-4f74-858d-4925f4d3fe7c"
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "ea74ae0d-cf0f-4cbc-8367-4f09744c249a",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "1053f3f5-3c53-4170-9425-66480cf9ffa7",
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
     }
   ]
 }
