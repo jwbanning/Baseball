@@ -2,7 +2,7 @@
   "info": {
     "_postman_id": "232c10d7-f578-4bf1-807f-2337a219d20d",
     "name": "Baseball ",
-    "description": "This is some test and some more content\n\nand a table here",
+    "description": "This is some test and some more content\n\nand a table here\n\nAnd some more content",
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
   },
   "item": [
